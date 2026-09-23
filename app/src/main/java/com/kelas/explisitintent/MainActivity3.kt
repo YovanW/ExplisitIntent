@@ -17,6 +17,10 @@ class MainActivity3 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val data = intent.getStringExtra(dataTerima)
+        val showData = findViewById<TextView>(R.id.showData)
+        showData.text = data?.toString()
     }
     companion object{
         const val dataTerima = "extra_dataTerima"
