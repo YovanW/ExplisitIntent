@@ -84,7 +84,7 @@ class MainActivity : ComponentActivity() {
         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
             val selectedItem = result.data?.getStringExtra(
                 MainActivity5.SelectedItem)
+            _returnHasil.text = selectedItem
         }
-        _returnHasil.text = selectedItem
     }
 }
