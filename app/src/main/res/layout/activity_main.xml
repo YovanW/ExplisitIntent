@@ -43,5 +43,22 @@
         >
     </Button>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnExplisit4"
+        android:text="Menunggu Return dari Activity 5">
+    </Button>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/returnHasil"
+        android:hint="Menunggu........"
+        android:gravity="center"
+        >
+    </TextView>
+
+
 
 </LinearLayout>

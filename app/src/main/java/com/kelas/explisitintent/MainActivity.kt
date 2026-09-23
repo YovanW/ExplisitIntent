@@ -1,12 +1,16 @@
 package com.kelas.explisitintent
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -26,6 +30,10 @@ class MainActivity : ComponentActivity() {
         val _dataKirim = findViewById<EditText>(R.id.dataKirim)
         val _btnExplisit2 = findViewById<Button>(R.id.btnExplisit2)
         val isiPegawai : ArrayList<Pegawai> = arrayListOf()
+        val _btnExplisit3 = findViewById<Button>(R.id.btnImplisit3)
+        val _btnExplisit4 = findViewById<Button>(R.id.btnExplisit4)
+
+        _returnHasil = findViewById(R.id.returnHasil)
 
         isiPegawai.add(Pegawai(1,"Anita", "Test"))
         isiPegawai.add(Pegawai(2, "Tatik", "Marketing"))
@@ -47,7 +55,6 @@ class MainActivity : ComponentActivity() {
             startActivity(intentWithData)
         }
 
-        val _btnExplisit3 = findViewById<Button>(R.id.btnImplisit3)
         _btnExplisit3.setOnClickListener {
             val intentWithObject = Intent(
                 this@MainActivity,
@@ -58,5 +65,26 @@ class MainActivity : ComponentActivity() {
             startActivity(intentWithObject)
         }
 
+        _btnExplisit4.setOnClickListener {
+            val intentWithResult = Intent(
+                this@MainActivity,
+                MainActivity5::class.java
+            )
+            resultLauncher.launch(
+                intentWithResult
+            )
+        }
+
+    }
+    private lateinit var _returnHasil: TextView
+
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+            val selectedItem = result.data?.getStringExtra(
+                MainActivity5.SelectedItem)
+        }
+        _returnHasil.text = selectedItem
     }
 }
