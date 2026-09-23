@@ -1,6 +1,8 @@
 package com.kelas.explisitintent
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -27,6 +29,18 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        var _btnExplisit1 = findViewById<Button>(R.id.btnExplisit1)
+
+        _btnExplisit1.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                MainActivity2::class.java
+            )
+            startActivity(intent)
+        }
+
+
     }
 }
 
