@@ -8,6 +8,13 @@
     tools:context=".MainActivity"
     android:layout_margin="16dp"
     >
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnExplisit1"
+        android:text="Buka Explisit Intent"
+        >
+    </Button>
 
 
 </LinearLayout>
