@@ -3,6 +3,7 @@ package com.kelas.explisitintent
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -29,17 +30,26 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
         var _btnExplisit1 = findViewById<Button>(R.id.btnExplisit1)
+        val _dataKirim = findViewById<EditText>(R.id.dataKirim)
+        val _btnExplisit2 = findViewById<Button>(R.id.btnExplisit2)
 
         _btnExplisit1.setOnClickListener {
             val intent = Intent(
                 this@MainActivity,
-                MainActivity2::class.java
-            )
+                MainActivity2::class.java)
             startActivity(intent)
         }
 
+        _btnExplisit2.setOnClickListener {
+            val intentWithData = Intent(
+                this@MainActivity,
+                MainActivity3::class.java
+            ).apply {
+                putExtra(MainActivity3.dataTerima, _dataKirim.text.toString())
+            }
+            startActivity(intentWithData)
+        }
 
     }
 }
