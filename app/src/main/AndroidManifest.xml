@@ -34,8 +34,8 @@
             android:theme="@style/Theme.ExplisitIntent.AppCompat" />
         <activity
             android:name=".MainActivity5"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:theme="@style/Theme.ExplisitIntent.AppCompat" />
+
     </application>
 
 </manifest>
