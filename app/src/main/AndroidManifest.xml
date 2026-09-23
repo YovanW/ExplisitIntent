@@ -25,16 +25,15 @@
         </activity>
         <activity
             android:name=".MainActivity2"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:theme="@style/Theme.ExplisitIntent.AppCompat" />
+
         <activity
             android:name=".MainActivity3"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:theme="@style/Theme.ExplisitIntent.AppCompat" />
+
         <activity
             android:name=".MainActivity4"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:theme="@style/Theme.ExplisitIntent.AppCompat" />
     </application>
 
 </manifest>

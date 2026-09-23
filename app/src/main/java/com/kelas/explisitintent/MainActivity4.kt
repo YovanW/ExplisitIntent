@@ -21,15 +21,20 @@ class MainActivity4 : AppCompatActivity() {
             insets
         }
 
-        val intentPegawai = intent.getParcelableExtra<Pegawai>(
+        val intentPegawai = intent.getParcelableArrayListExtra<Pegawai>(
             dataPegawai,
             Pegawai::class.java
         )
-        val isiText = "NIP : ${intentPegawai?.NIP.toString()}, " +
-                "\nNama : ${intentPegawai?.Nama.toString()}, " +
-                "\nDept : ${intentPegawai?.Dept.toString()}"
+        val isiText = "NIP : ${intentPegawai!![0].NIP.toString()}, " +
+                "\nNama : ${intentPegawai!![0].Nama.toString()}, " +
+                "\nDept : ${intentPegawai!![0].Dept.toString()}" +
+                "\n" +
+                "\nNIP : ${intentPegawai?.get(1)?.NIP.toString()}, " +
+                "\nNama : ${intentPegawai?.get(1)?.Nama.toString()}, " +
+                "\nDept : ${intentPegawai?.get(1)?.Dept.toString()}"
 
         val _shopDataPegawai = findViewById<TextView>(R.id.showDataPegawai)
+        _shopDataPegawai.text = isiText
 
     }
 

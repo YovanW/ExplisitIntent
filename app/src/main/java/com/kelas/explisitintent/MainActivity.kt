@@ -20,19 +20,15 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            ExplisitIntentTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+
         var _btnExplisit1 = findViewById<Button>(R.id.btnExplisit1)
         val _dataKirim = findViewById<EditText>(R.id.dataKirim)
         val _btnExplisit2 = findViewById<Button>(R.id.btnExplisit2)
+        val isiPegawai : ArrayList<Pegawai> = arrayListOf()
+
+        isiPegawai.add(Pegawai(1,"Anita", "Test"))
+        isiPegawai.add(Pegawai(2, "Tatik", "Marketing"))
 
         _btnExplisit1.setOnClickListener {
             val intent = Intent(
@@ -62,27 +58,5 @@ class MainActivity : ComponentActivity() {
             startActivity(intentWithObject)
         }
 
-        val isiPegawai = Pegawai(
-            1,
-            "Solman",
-            "Data Analyst"
-        )
-
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ExplisitIntentTheme {
-        Greeting("Android")
     }
 }
