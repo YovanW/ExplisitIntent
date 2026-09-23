@@ -51,6 +51,23 @@ class MainActivity : ComponentActivity() {
             startActivity(intentWithData)
         }
 
+        val _btnExplisit3 = findViewById<Button>(R.id.btnImplisit3)
+        _btnExplisit3.setOnClickListener {
+            val intentWithObject = Intent(
+                this@MainActivity,
+                MainActivity4::class.java
+            ).apply {
+                putExtra(MainActivity4.dataPegawai, isiPegawai)
+            }
+            startActivity(intentWithObject)
+        }
+
+        val isiPegawai = Pegawai(
+            1,
+            "Solman",
+            "Data Analyst"
+        )
+
     }
 }
 
